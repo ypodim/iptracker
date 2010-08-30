@@ -10,6 +10,12 @@
 import select, socket, os, sys, time
 
 
+def usage():
+    print "Usage: %s [HOSTNAME]"
+    print "HOSTNAME is the name of the host whose IP you are querying (optional). If not provided, the local IP will be advertised in a loop."
+    print "Press Ctrl+C to stop."
+    
+    
 class TrackClient():
     timeout = 4
     interval= 2
@@ -35,6 +41,8 @@ class TrackClient():
         return self.__unicode__()
         
     def advertisement_loop(self):
+        usage()
+        
         while True:
             try:
                 self.client.sendto( self.hostname, (self.host, self.port) )
@@ -60,7 +68,7 @@ class TrackClient():
         except Exception, e:
             print '%s' % e
 
-
+    
 if __name__=='__main__':
     t = TrackClient()
     
