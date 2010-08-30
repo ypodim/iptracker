@@ -32,14 +32,14 @@ while running:
             if data and data[-1] == '?':
                 hostname = data[:-1]
                 response = '%s' % hosts.get(hostname)
-                #print 'response: %s is on %s' % (hostname, address)
+                print 'response: %s is on %s' % (hostname, address)
                 
             if data and data[-1] != '?':
                 
                 hostname = data
                 hosts[hostname] = address[0]
                 response = 'ok'
-                #print '%s is on %s' % (hostname, address[0])
+                print '%s is on %s' % (hostname, address[0])
                 
             server.sendto( response, address )
 
