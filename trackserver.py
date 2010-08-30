@@ -18,7 +18,7 @@ port	= 5657
 server = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 server.bind((host,port))
 
-input = [server,sys.stdin]
+input = [server]
 running = True
 while running:
     inputready,outputready,exceptready = select.select(input,[],[])
